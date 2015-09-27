@@ -5,7 +5,7 @@
     <groupId>com.github.meggermo.maven</groupId>
     <artifactId>maven.pom.root</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.4-SNAPSHOT</version>
 
     <description>
        Project pom containing the default configuration for my maven projects
