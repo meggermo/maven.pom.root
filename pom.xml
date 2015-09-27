@@ -16,7 +16,7 @@
     <scm>
         <url>https://${github.host}/maven.pom.root</url>
         <connection>scm:https://${github.host}/maven.pom.root</connection>
-        <developerConnection>scm:git:ssh://git@${github.host}/maven.pom.root</developerConnection>
+        <developerConnection>scm:git:ssh://git@$github.com/meggermo/maven.pom.root</developerConnection>
     </scm>
     <issueManagement>
         <url>https://${github.host}/maven.pom.root/issues</url>
