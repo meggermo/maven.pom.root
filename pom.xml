@@ -184,6 +184,11 @@
                     <artifactId>maven-bundle-plugin</artifactId>
                     <version>${maven.bundle.plugin.version}</version>
                     <extensions>true</extensions>
+                    <configuration>
+                        <instructions>
+                            <build>${maven.build.timestamp}</build>
+                        </instructions>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.jacoco</groupId>
