@@ -75,6 +75,7 @@
         <maven.jgitflow.plugin.version>1.0-m5.1</maven.jgitflow.plugin.version>
         <maven.bundle.plugin.version>4.1.0</maven.bundle.plugin.version>
         <maven.jacoco.plugin.version>0.8.2</maven.jacoco.plugin.version>
+        <gitflow-maven-plugin.version>1.10.0</gitflow-maven-plugin.version>
 
         <!-- test library versions -->
         <junit.version>4.12</junit.version>
@@ -152,6 +153,18 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.amashchenko.maven.plugin</groupId>
+                <artifactId>gitflow-maven-plugin</artifactId>
+                <configuration>
+                    <gitFlowConfig>
+                        <productionBranch>master</productionBranch>
+                        <developmentBranch>development</developmentBranch>
+                        <releaseBranchPrefix>release-</releaseBranchPrefix>
+                        <versionTagPrefix>v</versionTagPrefix>
+                    </gitFlowConfig>
+                </configuration>
+            </plugin>
         </plugins>
         <pluginManagement>
             <!-- Maven plugin configuration -->
@@ -211,6 +224,11 @@
                     <version>${maven.site.plugin.version}</version>
                 </plugin>
                 <!-- Third party maven plugin configuration -->
+                <plugin>
+                    <groupId>com.amashchenko.maven.plugin</groupId>
+                    <artifactId>gitflow-maven-plugin</artifactId>
+                    <version>${gitflow-maven-plugin.version}</version>
+                </plugin>
                 <plugin>
                     <groupId>external.atlassian.jgitflow</groupId>
                     <artifactId>jgitflow-maven-plugin</artifactId>
