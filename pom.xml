@@ -82,9 +82,6 @@
     <mockito.version>2.23.0</mockito.version>
     <assertj.version>3.11.1</assertj.version>
 
-    <!-- compile time library versions -->
-    <bnd.annotation.version>2.4.0</bnd.annotation.version>
-
   </properties>
 
   <dependencyManagement>
@@ -115,11 +112,16 @@
         <artifactId>assertj-core</artifactId>
         <version>${assertj.version}</version>
       </dependency>
-      <!-- Compile time dependencies -->
+      <!-- OSGI dependencies -->
       <dependency>
-        <groupId>biz.aQute.bnd</groupId>
-        <artifactId>annotation</artifactId>
-        <version>${bnd.annotation.version}</version>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.service.component.annotations</artifactId>
+        <version>1.4.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.annotation.versioning</artifactId>
+        <version>1.1.0</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
