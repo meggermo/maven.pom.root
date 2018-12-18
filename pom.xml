@@ -72,7 +72,6 @@
     <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
 
     <!-- third-party maven plugin versions -->
-    <maven.jgitflow.plugin.version>1.0-m5.1</maven.jgitflow.plugin.version>
     <maven.bundle.plugin.version>4.1.0</maven.bundle.plugin.version>
     <maven.jacoco.plugin.version>0.8.2</maven.jacoco.plugin.version>
     <gitflow-maven-plugin.version>1.10.0</gitflow-maven-plugin.version>
@@ -228,22 +227,6 @@
           <groupId>com.amashchenko.maven.plugin</groupId>
           <artifactId>gitflow-maven-plugin</artifactId>
           <version>${gitflow-maven-plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>external.atlassian.jgitflow</groupId>
-          <artifactId>jgitflow-maven-plugin</artifactId>
-          <version>${maven.jgitflow.plugin.version}</version>
-          <configuration>
-            <flowInitContext>
-              <masterBranchName>master</masterBranchName>
-              <developBranchName>development</developBranchName>
-              <releaseBranchPrefix>release-</releaseBranchPrefix>
-              <versionTagPrefix>v</versionTagPrefix>
-            </flowInitContext>
-            <enableSshAgent>true</enableSshAgent>
-            <noDeploy>true</noDeploy>
-            <useReleaseProfile>false</useReleaseProfile>
-          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.felix</groupId>
