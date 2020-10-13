@@ -5,7 +5,7 @@
   <groupId>com.github.meggermo.maven</groupId>
   <artifactId>maven.pom.root</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.10-SNAPSHOT</version>
+  <version>1.0.9</version>
 
   <description>
     Project pom containing the default configuration for my maven projects
@@ -60,28 +60,28 @@
     <java.compiler.target.version>1.8</java.compiler.target.version>
 
     <!-- maven provided plugin versions -->
-    <maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
-    <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
-    <maven.javadoc.plugin.version>3.0.1</maven.javadoc.plugin.version>
-    <maven.dependency.plugin.version>3.1.1</maven.dependency.plugin.version>
+    <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
+    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+    <maven.javadoc.plugin.version>3.2.0</maven.javadoc.plugin.version>
+    <maven.dependency.plugin.version>3.1.2</maven.dependency.plugin.version>
     <maven.install.plugin.version>3.0.0-M1</maven.install.plugin.version>
     <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
     <maven.project-info-reports-plugin.version>3.0.0</maven.project-info-reports-plugin.version>
     <maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
     <maven.deploy.plugin.version>3.0.0-M1</maven.deploy.plugin.version>
-    <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
+    <maven.site.plugin.version>3.8.2</maven.site.plugin.version>
 
     <!-- third-party maven plugin versions -->
-    <maven.bundle.plugin.version>4.1.0</maven.bundle.plugin.version>
-    <maven.jacoco.plugin.version>0.8.2</maven.jacoco.plugin.version>
-    <gitflow-maven-plugin.version>1.11.0</gitflow-maven-plugin.version>
+    <maven.bundle.plugin.version>5.1.1</maven.bundle.plugin.version>
+    <maven.jacoco.plugin.version>0.8.6</maven.jacoco.plugin.version>
+    <gitflow-maven-plugin.version>1.14.0</gitflow-maven-plugin.version>
 
     <!-- test library versions -->
-    <junit4.version>4.12</junit4.version>
-    <junit5.version>5.5.1</junit5.version>
-    <hamcrest.version>2.1</hamcrest.version>
-    <mockito.version>3.0.0</mockito.version>
-    <assertj.version>3.13.2</assertj.version>
+    <junit4.version>4.13.1</junit4.version>
+    <junit5.version>5.7.0</junit5.version>
+    <hamcrest.version>2.2</hamcrest.version>
+    <mockito.version>3.5.13</mockito.version>
+    <assertj.version>3.17.2</assertj.version>
 
   </properties>
 
