@@ -5,7 +5,7 @@
   <groupId>com.github.meggermo.maven</groupId>
   <artifactId>maven.pom.root</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.9</version>
+  <version>1.0.10</version>
 
   <description>
     Project pom containing the default configuration for my maven projects
@@ -77,7 +77,7 @@
     <gitflow-maven-plugin.version>1.11.0</gitflow-maven-plugin.version>
 
     <!-- test library versions -->
-    <junit4.version>4.13.1</junit4.version>
+    <junit4.version>4.12</junit4.version>
     <junit5.version>5.5.1</junit5.version>
     <hamcrest.version>2.1</hamcrest.version>
     <mockito.version>3.0.0</mockito.version>
