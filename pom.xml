@@ -80,7 +80,7 @@
     <junit4.version>4.13.1</junit4.version>
     <junit5.version>5.7.0</junit5.version>
     <hamcrest.version>2.2</hamcrest.version>
-    <mockito.version>3.5.13</mockito.version>
+    <mockito.version>3.5.15</mockito.version>
     <assertj.version>3.17.2</assertj.version>
 
   </properties>
