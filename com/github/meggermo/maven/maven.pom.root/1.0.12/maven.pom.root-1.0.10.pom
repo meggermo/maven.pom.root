@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.github.meggermo.maven</groupId>
+  <artifactId>maven.pom.root</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.12</version>
+
+  <description>
+    Project pom containing the default configuration for my maven projects
+  </description>
+  <inceptionYear>2015</inceptionYear>
+
+  <url>https://${github.host}/${project.artifactId}</url>
+  <scm>
+    <url>https://${github.host}/${project.artifactId}</url>
+    <connection>scm:https://${github.host}/${project.artifactId}</connection>
+    <developerConnection>scm:git:ssh://git@${github.host}/${project.artifactId}</developerConnection>
+  </scm>
+  <issueManagement>
+    <url>https://${github.host}/${project.artifactId}/issues</url>
+    <system>github</system>
+  </issueManagement>
+
+  <organization>
+    <name>${github.account.name}</name>
+    <url>https://${github.host}</url>
+  </organization>
+  <developers>
+    <developer>
+      <id>${github.account.name}</id>
+      <name>Michiel Eggermont</name>
+      <email>michiel.eggermont@gmail.com</email>
+      <url>https://${github.host}</url>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://raw.githubusercontent.com/${github.account.name}/${project.artifactId}/master/LICENSE.txt</url>
+    </license>
+  </licenses>
+
+  <properties>
+    <!-- Github properties -->
+    <github.host.name>github.com</github.host.name>
+    <github.account.name>meggermo</github.account.name>
+    <github.host>${github.host.name}/${github.account.name}</github.host>
+
+    <!-- prerequisites -->
+    <maven.min-version>3.5.0</maven.min-version>
+
+    <!-- project configuration -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
+    <maven.build.timestamp.format>yyyyMMddHHmmzzz</maven.build.timestamp.format>
+    <java.compiler.source.version>1.8</java.compiler.source.version>
+    <java.compiler.target.version>1.8</java.compiler.target.version>
+
+    <!-- maven provided plugin versions -->
+    <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
+    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+    <maven.javadoc.plugin.version>3.2.0</maven.javadoc.plugin.version>
+    <maven.dependency.plugin.version>3.1.2</maven.dependency.plugin.version>
+    <maven.install.plugin.version>3.0.0-M1</maven.install.plugin.version>
+    <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
+    <maven.project-info-reports-plugin.version>3.0.0</maven.project-info-reports-plugin.version>
+    <maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
+    <maven.deploy.plugin.version>3.0.0-M1</maven.deploy.plugin.version>
+    <maven.site.plugin.version>3.8.2</maven.site.plugin.version>
+
+    <!-- third-party maven plugin versions -->
+    <maven.bundle.plugin.version>5.1.1</maven.bundle.plugin.version>
+    <maven.jacoco.plugin.version>0.8.6</maven.jacoco.plugin.version>
+    <gitflow-maven-plugin.version>1.14.0</gitflow-maven-plugin.version>
+
+    <!-- test library versions -->
+    <junit4.version>4.13.1</junit4.version>
+    <junit5.version>5.7.0</junit5.version>
+    <hamcrest.version>2.2</hamcrest.version>
+    <mockito.version>3.5.15</mockito.version>
+    <assertj.version>3.17.2</assertj.version>
+
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- Test dependencies -->
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>${junit5.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit4.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-core</artifactId>
+        <version>${hamcrest.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-library</artifactId>
+        <version>${hamcrest.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>${mockito.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-junit-jupiter</artifactId>
+        <version>${mockito.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>${assertj.version}</version>
+      </dependency>
+      <!-- OSGI dependencies -->
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.service.component.annotations</artifactId>
+        <version>1.4.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.annotation.versioning</artifactId>
+        <version>1.1.0</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>${maven-enforcer-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>enforce-maven</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireMavenVersion>
+                  <version>${maven.min-version}</version>
+                </requireMavenVersion>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.amashchenko.maven.plugin</groupId>
+        <artifactId>gitflow-maven-plugin</artifactId>
+        <configuration>
+          <gitFlowConfig>
+            <productionBranch>master</productionBranch>
+            <developmentBranch>development</developmentBranch>
+            <releaseBranchPrefix>release-</releaseBranchPrefix>
+            <versionTagPrefix>v</versionTagPrefix>
+          </gitFlowConfig>
+        </configuration>
+      </plugin>
+    </plugins>
+    <pluginManagement>
+      <!-- Maven plugin configuration -->
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven.compiler.plugin.version}</version>
+          <configuration>
+            <source>${java.compiler.source.version}</source>
+            <target>${java.compiler.target.version}</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${maven.javadoc.plugin.version}</version>
+          <configuration>
+            <additionalOptions>
+              <additionalOption>-Xdoclint:none</additionalOption>
+            </additionalOptions>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>${maven.dependency.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${maven.install.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${maven.surefire.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>${maven.project-info-reports-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>${maven.clean.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${maven.deploy.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${maven.site.plugin.version}</version>
+        </plugin>
+        <!-- Third party maven plugin configuration -->
+        <plugin>
+          <groupId>com.amashchenko.maven.plugin</groupId>
+          <artifactId>gitflow-maven-plugin</artifactId>
+          <version>${gitflow-maven-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>${maven.bundle.plugin.version}</version>
+          <extensions>true</extensions>
+          <configuration>
+            <instructions>
+              <build>${maven.build.timestamp}</build>
+            </instructions>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>${maven.jacoco.plugin.version}</version>
+        </plugin>
+      </plugins>
+
+    </pluginManagement>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>metrics</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>default-prepare-agent</id>
+                <goals>
+                  <goal>prepare-agent</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>default-report</id>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>report</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>default-check</id>
+                <goals>
+                  <goal>check</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <rule>
+                      <element>BUNDLE</element>
+                      <limits>
+                        <limit>
+                          <counter>LINE</counter>
+                          <value>COVEREDRATIO</value>
+                          <minimum>0.90</minimum>
+                        </limit>
+                        <limit>
+                          <counter>BRANCH</counter>
+                          <value>COVEREDRATIO</value>
+                          <minimum>0.85</minimum>
+                        </limit>
+                      </limits>
+                    </rule>
+                    <rule>
+                      <element>CLASS</element>
+                      <limits>
+                        <limit>
+                          <counter>COMPLEXITY</counter>
+                          <value>COVEREDRATIO</value>
+                          <minimum>0.25</minimum>
+                        </limit>
+                      </limits>
+                    </rule>
+                  </rules>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+
+</project>
