@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.meggermo.maven</groupId>
   <artifactId>maven.pom.root</artifactId>
-  <version>2.0.0</version>
+  <version>2.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <description>Project pom containing the default configuration for my maven projects</description>
   <url>https://${github.host}/${project.artifactId}</url>
