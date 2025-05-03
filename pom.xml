@@ -1,32 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>com.github.meggermo.maven</groupId>
   <artifactId>maven.pom.root</artifactId>
-  <packaging>pom</packaging>
   <version>1.0.13-SNAPSHOT</version>
-
-  <description>
-    Project pom containing the default configuration for my maven projects
-  </description>
-  <inceptionYear>2015</inceptionYear>
-
+  <packaging>pom</packaging>
+  <description>Project pom containing the default configuration for my maven projects</description>
   <url>https://${github.host}/${project.artifactId}</url>
-  <scm>
-    <url>https://${github.host}/${project.artifactId}</url>
-    <connection>scm:https://${github.host}/${project.artifactId}</connection>
-    <developerConnection>scm:git:ssh://git@${github.host}/${project.artifactId}</developerConnection>
-  </scm>
-  <issueManagement>
-    <url>https://${github.host}/${project.artifactId}/issues</url>
-    <system>github</system>
-  </issueManagement>
-
+  <inceptionYear>2015</inceptionYear>
   <organization>
     <name>${github.account.name}</name>
     <url>https://${github.host}</url>
   </organization>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://raw.githubusercontent.com/${github.account.name}/${project.artifactId}/master/LICENSE.txt</url>
+    </license>
+  </licenses>
   <developers>
     <developer>
       <id>${github.account.name}</id>
@@ -35,56 +26,58 @@
       <url>https://${github.host}</url>
     </developer>
   </developers>
-
-  <licenses>
-    <license>
-      <name>MIT License</name>
-      <url>https://raw.githubusercontent.com/${github.account.name}/${project.artifactId}/master/LICENSE.txt</url>
-    </license>
-  </licenses>
-
+  <scm>
+    <connection>scm:https://${github.host}/${project.artifactId}</connection>
+    <developerConnection>scm:git:ssh://git@${github.host}/${project.artifactId}</developerConnection>
+    <url>https://${github.host}/${project.artifactId}</url>
+  </scm>
+  <issueManagement>
+    <system>github</system>
+    <url>https://${github.host}/${project.artifactId}/issues</url>
+  </issueManagement>
   <properties>
     <!-- Github properties -->
     <github.host.name>github.com</github.host.name>
     <github.account.name>meggermo</github.account.name>
     <github.host>${github.host.name}/${github.account.name}</github.host>
-
     <!-- prerequisites -->
     <maven.min-version>3.5.0</maven.min-version>
-
+    <!-- plugin skip properties -->
+    <enforcer-skip>false</enforcer-skip>
+    <spotless-skip>false</spotless-skip>
     <!-- project configuration -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
     <maven.build.timestamp.format>yyyyMMddHHmmzzz</maven.build.timestamp.format>
-    <java.compiler.source.version>1.8</java.compiler.source.version>
-    <java.compiler.target.version>1.8</java.compiler.target.version>
-
+    <java.compiler.release>21</java.compiler.release>
     <!-- maven provided plugin versions -->
-    <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
-    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-    <maven.javadoc.plugin.version>3.2.0</maven.javadoc.plugin.version>
-    <maven.dependency.plugin.version>3.1.2</maven.dependency.plugin.version>
-    <maven.install.plugin.version>3.0.0-M1</maven.install.plugin.version>
-    <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
-    <maven.project-info-reports-plugin.version>3.0.0</maven.project-info-reports-plugin.version>
-    <maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
-    <maven.deploy.plugin.version>3.0.0-M1</maven.deploy.plugin.version>
-    <maven.site.plugin.version>3.8.2</maven.site.plugin.version>
-
+    <maven.clean.plugin.version>3.4.1</maven.clean.plugin.version>
+    <maven.compiler.plugin.version>3.14.0</maven.compiler.plugin.version>
+    <maven.dependency.plugin.version>3.8.1</maven.dependency.plugin.version>
+    <maven.deploy.plugin.version>3.1.4</maven.deploy.plugin.version>
+    <maven-enforcer-plugin.version>3.5.0</maven-enforcer-plugin.version>
+    <maven.install.plugin.version>3.1.4</maven.install.plugin.version>
+    <maven.javadoc.plugin.version>3.11.2</maven.javadoc.plugin.version>
+    <maven.project-info-reports-plugin.version>3.9.0</maven.project-info-reports-plugin.version>
+    <maven.site.plugin.version>3.21.0</maven.site.plugin.version>
+    <maven.surefire.plugin.version>3.5.3</maven.surefire.plugin.version>
     <!-- third-party maven plugin versions -->
-    <maven.bundle.plugin.version>5.1.1</maven.bundle.plugin.version>
-    <maven.jacoco.plugin.version>0.8.6</maven.jacoco.plugin.version>
-    <gitflow-maven-plugin.version>1.14.0</gitflow-maven-plugin.version>
-
+    <gitflow-maven-plugin.version>1.21.0</gitflow-maven-plugin.version>
+    <maven.bundle.plugin.version>6.0.0</maven.bundle.plugin.version>
+    <maven.jacoco.plugin.version>0.8.13</maven.jacoco.plugin.version>
+    <spotless-maven-plugin.version>2.44.3</spotless-maven-plugin.version>
+    <versions-maven-plugin.version>2.18.0</versions-maven-plugin.version>
     <!-- test library versions -->
-    <junit4.version>4.13.1</junit4.version>
-    <junit5.version>5.7.0</junit5.version>
-    <hamcrest.version>2.2</hamcrest.version>
-    <mockito.version>3.5.15</mockito.version>
-    <assertj.version>3.17.2</assertj.version>
-
+    <assertj.version>3.27.3</assertj.version>
+    <jqwik.version>1.9.2</jqwik.version>
+    <hamcrest.version>3.0</hamcrest.version>
+    <junit4.version>4.13.2</junit4.version>
+    <junit5.version>5.12.2</junit5.version>
+    <mockito.version>5.17.0</mockito.version>
+    <!-- OSGI library version -->
+    <org.osgi.annotation.versioning.version>1.1.2</org.osgi.annotation.versioning.version>
+    <org.osgi.service.component.annotations.version>1.5.1</org.osgi.service.component.annotations.version>
   </properties>
-
   <dependencyManagement>
     <dependencies>
       <!-- Test dependencies -->
@@ -125,55 +118,25 @@
         <artifactId>assertj-core</artifactId>
         <version>${assertj.version}</version>
       </dependency>
+      <dependency>
+        <groupId>net.jqwik</groupId>
+        <artifactId>jqwik</artifactId>
+        <version>${jqwik.version}</version>
+      </dependency>
       <!-- OSGI dependencies -->
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.service.component.annotations</artifactId>
-        <version>1.4.0</version>
+        <version>${org.osgi.service.component.annotations.version}</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.annotation.versioning</artifactId>
-        <version>1.1.0</version>
+        <version>${org.osgi.annotation.versioning.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
-
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <version>${maven-enforcer-plugin.version}</version>
-        <executions>
-          <execution>
-            <id>enforce-maven</id>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <requireMavenVersion>
-                  <version>${maven.min-version}</version>
-                </requireMavenVersion>
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>com.amashchenko.maven.plugin</groupId>
-        <artifactId>gitflow-maven-plugin</artifactId>
-        <configuration>
-          <gitFlowConfig>
-            <productionBranch>master</productionBranch>
-            <developmentBranch>development</developmentBranch>
-            <releaseBranchPrefix>release-</releaseBranchPrefix>
-            <versionTagPrefix>v</versionTagPrefix>
-          </gitFlowConfig>
-        </configuration>
-      </plugin>
-    </plugins>
     <pluginManagement>
       <!-- Maven plugin configuration -->
       <plugins>
@@ -181,10 +144,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${maven.compiler.plugin.version}</version>
-          <configuration>
-            <source>${java.compiler.source.version}</source>
-            <target>${java.compiler.target.version}</target>
-          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -254,10 +213,96 @@
           <version>${maven.jacoco.plugin.version}</version>
         </plugin>
       </plugins>
-
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>${maven-enforcer-plugin.version}</version>
+        <configuration>
+          <skip>${enforcer-skip}</skip>
+        </configuration>
+        <executions>
+          <execution>
+            <id>enforce-maven</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireMavenVersion>
+                  <version>${maven.min-version}</version>
+                </requireMavenVersion>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.amashchenko.maven.plugin</groupId>
+        <artifactId>gitflow-maven-plugin</artifactId>
+        <configuration>
+          <gitFlowConfig>
+            <productionBranch>master</productionBranch>
+            <developmentBranch>development</developmentBranch>
+            <releaseBranchPrefix>release-</releaseBranchPrefix>
+            <versionTagPrefix>v</versionTagPrefix>
+          </gitFlowConfig>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>${versions-maven-plugin.version}</version>
+        <configuration>
+          <ignoredVersions>.+-(M|alpha|beta)\-?\d+.*</ignoredVersions>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>${spotless-maven-plugin.version}</version>
+        <configuration>
+          <skip>${spotless-skip}</skip>
+          <formats>
+            <format>
+              <includes>
+                <include>.gitattributes</include>
+                <include>.gitignore</include>
+                <include>*.(xml|json|md|adoc)</include>
+                <include>src/**/*</include>
+              </includes>
+              <trimTrailingWhitespace/>
+              <endWithNewline/>
+              <indent>
+                <spaces>true</spaces>
+                <spacesPerTab>2</spacesPerTab>
+              </indent>
+            </format>
+          </formats>
+          <java>
+            <palantirJavaFormat/>
+          </java>
+          <pom>
+            <sortPom>
+              <expandEmptyElements>false</expandEmptyElements>
+              <nrOfIndentSpace>2</nrOfIndentSpace>
+              <keepBlankLines>false</keepBlankLines>
+            </sortPom>
+          </pom>
+        </configuration>
+        <executions>
+          <execution>
+            <id>check</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <phase>validate</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
-
   <profiles>
     <profile>
       <id>metrics</id>
@@ -275,10 +320,10 @@
               </execution>
               <execution>
                 <id>default-report</id>
-                <phase>prepare-package</phase>
                 <goals>
                   <goal>report</goal>
                 </goals>
+                <phase>prepare-package</phase>
               </execution>
               <execution>
                 <id>default-check</id>
@@ -321,6 +366,4 @@
       </build>
     </profile>
   </profiles>
-
-
 </project>
