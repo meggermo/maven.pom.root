@@ -68,7 +68,7 @@
     <spotless-maven-plugin.version>2.44.3</spotless-maven-plugin.version>
     <versions-maven-plugin.version>2.18.0</versions-maven-plugin.version>
     <!-- test library versions -->
-    <assertj.version>3.27.3</assertj.version>
+    <assertj.version>3.27.7</assertj.version>
     <jqwik.version>1.9.2</jqwik.version>
     <hamcrest.version>3.0</hamcrest.version>
     <junit4.version>4.13.2</junit4.version>
